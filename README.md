@@ -1,5 +1,4 @@
-# swooop
-an exclusive social media app for the u.s. market
+# Owl Sponsor
 
 To get started, you'll need flutter.
 Please follow the steps at the official site:
