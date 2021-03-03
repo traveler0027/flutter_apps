@@ -1,0 +1,33 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \
+void main()\{\
+  String name = 'james'; // type variable string needs to be capital \
+  var age = 34; //var means we don't know the type\
+  final double height = 1.84; //final - immutable variable=> constant\
+  dynamic rand = 2; // dynamic variable can change types\
+  rand = "bob";\
+  String answer = describe(name, age, height,rand);\
+  String answer2 = describe('bob',17,30.0);\
+  \
+  func(param2: 5,param1: 3); //to call parameters by name use:\
+  print(answer);\
+  \
+  \
+\}\
+\
+String describe(String name, int age, double height, [var rand = 'hi'])\{ // [optional parameter] //order matters // = default value\
+  print("Hello, $name age of $age");\
+  print('length is: $\{ name.length\} and $height');\
+  print("$\{rand+' oh'\}");\
+  return 'yup';\
+\}\
+\
+void func(\{int param1, int param2\})\{ //call parameters by name, need \{\}\
+  print("$\{param1 + param2\}");\
+\}}
