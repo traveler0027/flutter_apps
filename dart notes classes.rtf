@@ -1,0 +1,77 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import 'dart:math';\
+void main() \{\
+final square = Square(side: 10);\
+  printArea(square); //pass the whole instance of square to the function\
+final circle = Circle(radius: 5.0);\
+  print(circle.area);\
+  \
+  print(days(0.04));\
+\}\
+\
+void printArea(Shape shape)\{ //function takes parament shape of type Shape\
+//print(shape.area());\
+  print(shape.area); //computed property area doesn't need ()\
+\}\
+\
+abstract class Shape\{\
+  //abstract classes hold variables for other classes to use.\
+  //cant initiate abstract classes\
+  //double area(); \
+  double get area; //turned into a computed property\
+\}\
+\
+class Square implements Shape\{\
+  Square(\{this.side = 0.0\});\
+  final double side;\
+  //area() => side * side;\
+  get area => side * side;\
+\}\
+\
+class Circle implements Shape\{\
+  Circle(\{this.radius = 0.0\});\
+  final double radius;\
+  //area() =>radius* radius * pi;\
+  get area => radius * radius * pi;\
+\}\
+\
+double days(double time)\{\
+  return 1/time;\
+\}\
+\
+\
+mixin BMI\{  //mixin are functions to be included with classes\
+  double calcBMI(double height, double weight)\{\
+    return weight/(height * height);\
+  \}\
+ \}\
+  \
+\
+\
+class Person with BMI\{\
+  Person(\{required this.name, required this.age,required this.height,required this.weight\});\
+  final String name;\
+  final int age;\
+  final double height;\
+  final double weight;\
+  \
+  //moving this insode the mixin\
+  //double calcBMI()\{\
+  //  return weight/(height * height);\
+  //\}\
+  double get bmi => calcBMI(height,weight); //calculated varaible\
+    \
+\}\
+\
+void main() \{\
+final person = Person(name: 'bob',age: 11, height: 1.42, weight: 75.0);\
+//print(person.runtimeType); // Class are types too\
+  //print(person.BMI()); //if BMI is part of person\
+  print(person.bmi);\
+\}}
